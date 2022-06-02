@@ -1,0 +1,5 @@
+kubectl create deployment --image=python-docker-k8s
+kubectl expose deployment python-docker-k8s --type=LoadBalancer --port=4141
+
+kubectl get deployment python-docker-k8s -o yaml > deployment.yml
+kubectl get service/python-docker-k8s -o yaml > service.yml
