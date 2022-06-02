@@ -3,3 +3,14 @@ kubectl expose deployment python-docker-k8s --type=LoadBalancer --port=4141
 
 kubectl get deployment python-docker-k8s -o yaml > deployment.yml
 kubectl get service/python-docker-k8s -o yaml > service.yml
+
+install ingress controller using 
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+and check using kubectl get pods --namespace=ingress-nginx
+
+how to delete all resources related to similar kind of deloyments
+
+get details with selector
+kubectl get deployment.apps/demo -o wide
+
+kubectl delete all -l app=demo

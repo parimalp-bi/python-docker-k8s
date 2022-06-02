@@ -8,7 +8,6 @@ metadata:
   labels:
     app: python-docker-k8s
   name: python-docker-k8s
-
 spec:
   replicas: 4
   selector:
