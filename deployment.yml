@@ -30,8 +30,6 @@ spec:
         ports:
         - containerPort: 4141
 
-      
-
 ---
 
 apiVersion: v1
@@ -43,9 +41,24 @@ metadata:
   namespace: default
 spec:
   ports:
-  - port: 4141
+  - port: 4141 # service port
     protocol: TCP
-    targetPort: 4141
+    targetPort: 4242 # container port
   selector:
     app: python-docker-k8s
   type: LoadBalancer
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: python-docker-k8s
+  name: clusturip
+  namespace: default
+spec:
+  ports:
+  - port: 4242
+    targetPort: 4141
+  selector:
+    app: python-docker-k8s

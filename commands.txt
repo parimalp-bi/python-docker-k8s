@@ -14,3 +14,7 @@ get details with selector
 kubectl get deployment.apps/demo -o wide
 
 kubectl delete all -l app=demo
+
+to access application exposed using clusture ip. 5252 is host port 4242 is service port
+
+kubectl port-forward service/clusturip 5252:4242

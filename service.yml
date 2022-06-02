@@ -13,3 +13,4 @@ spec:
   selector:
     app: python-docker-k8s
   type: LoadBalancer
+
