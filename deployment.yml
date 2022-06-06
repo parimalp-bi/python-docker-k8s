@@ -1,10 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-  creationTimestamp: "2022-06-02T11:56:38Z"
-  generation: 1
   labels:
     app: python-docker-k8s
   name: python-docker-k8s
@@ -25,7 +21,7 @@ spec:
     spec:
       containers:
       - image: parimalppatil/python-docker-k8s
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
         name: python-docker-k8s
         ports:
         - containerPort: 4141
@@ -43,22 +39,6 @@ spec:
   ports:
   - port: 4141 # service port
     protocol: TCP
-    targetPort: 4242 # container port
-  selector:
-    app: python-docker-k8s
-  type: LoadBalancer
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: python-docker-k8s
-  name: clusturip
-  namespace: default
-spec:
-  ports:
-  - port: 4242
-    targetPort: 4141
+    targetPort: 4141 # container port
   selector:
     app: python-docker-k8s

@@ -4,12 +4,12 @@ import socket
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/firstService")
 async def root():
     return {"message": "Hello World"}
 
 
-@app.get("/hostname")
+@app.get("/firstService/hostname")
 async def get_hostname():
     hostname = socket.gethostname()
     return {"hostname":hostname}    

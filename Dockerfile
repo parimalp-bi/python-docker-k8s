@@ -8,9 +8,9 @@ WORKDIR /opt/app
 
 COPY ./requirements.txt ./requirements.txt
 
-COPY ./app.py ./app.py
-
 RUN pip install -r requirements.txt
+
+COPY ./app.py ./app.py
 
 EXPOSE 4141
 
