@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: python-docker-k8s
+  name: clusturip
+  namespace: default
+spec:
+  ports:
+  - port: 4242 # service port
+    targetPort: 4141 # container port
+  selector:
+    app: python-docker-k8s
+
+# kubectl port-forward service/clusturip 5252:4242
