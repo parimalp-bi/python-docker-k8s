@@ -1,3 +1,5 @@
+docker build -t parimalppatil/python-docker-k8s .
+
 kubectl create deployment --image=python-docker-k8s
 kubectl expose deployment python-docker-k8s --type=LoadBalancer --port=4141
 
@@ -18,3 +20,7 @@ kubectl delete all -l app=demo
 to access application exposed using clusture ip. 5252 is host port 4242 is service port
 
 kubectl port-forward service/clusturip 5252:4242
+
+
+change C:\Windows\System32\drivers\etc\hosts file to add an entry for 
+ingress-example.com so that ingress can be tested.

@@ -5,14 +5,14 @@ metadata:
     app: python-docker-k8s
   name: python-docker-k8s
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: python-docker-k8s
   strategy:
     rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
+      maxSurge: 50%
+      maxUnavailable: 50%
     type: RollingUpdate
   template:
     metadata:
@@ -25,7 +25,6 @@ spec:
         name: python-docker-k8s
         ports:
         - containerPort: 4141
-
 ---
 
 apiVersion: v1
